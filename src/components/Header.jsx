@@ -1,45 +1,67 @@
-import { Link, UseNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
-    const navigate = UseNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <>
-            <header className="bg-white shadow-md fixed w-full top-0 z-10">
+            <header className="bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 fixed w-full top-0 z-10 shadow-[0_4px_30px_rgba(255,200,0,0.4)]">
                 <div className="container mx-auto flex items-center justify-between py-4 px-6">
-
-                    {/* Kiri: Logo */}
-                    <h1 className="text-3xl font-bold text-yellow-600">
+                    <h1 className="font-heading md:text-5xl font-bold text-yellow-400 hover:text-yellow-200 transition-colors flex items-center gap-3">
+                        <motion.img
+                            src="Logo.png"
+                            alt="Logo"
+                            initial={{ x: -200, opacity: 0 }}
+                            animate={{ x: 0, opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                            className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                        />
                         <Link to={"/"}>CAR-RENT</Link>
                     </h1>
 
-                    {/* Tengah: Search Input */}
-                    <div className="flex-1 mx-6">
-                        <input
-                            type="text"
-                            placeholder="Search cars..."
-                            className="w-full max-w-md mx-auto block px-4 py-2 border rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
-                        />
-                    </div>
-
-                    {/* Kanan: Nav */}
-                    <nav className="flex gap-6 font-medium">
-                        <Link
-                            to={"/home"}
-                            className="hover:text-yellow-500"
-                        >
+                    {/* Nav Desktop */}
+                    <nav className="font-heading hidden md:flex gap-6 font-medium">
+                        <Link to={"/"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
                             Home
                         </Link>
-                        <Link
-                            to={"/booking"}
-                            className="hover:text-yellow-500"
-                        >
+                        <Link to={"/about"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
+                            About
+                        </Link>
+                        <Link to={"/booking"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
                             Booking
                         </Link>
                     </nav>
+
+                    {/* Hamburger */}
+                    <button
+                        className="md:hidden text-yellow-400"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        {menuOpen ? <X size={28} /> : <Menu size={28} />}
+                    </button>
                 </div>
+
+                {menuOpen && (
+                    <div className="md:hidden bg-gradient-to-r from-gray-900 via-black to-gray-800 shadow-[0_4px_30px_rgba(255,200,0,0.4)]">
+                        <div className="flex flex-col items-center gap-4 py-4">
+                            <Link to={"/"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                                Home
+                            </Link>
+                            <Link to={"/about"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                                About
+                            </Link>
+                            <Link to={"/booking"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                                Booking
+                            </Link>
+                        </div>
+                    </div>
+                )}
             </header>
         </>
     );
-}
+};
 
 export default Header;
