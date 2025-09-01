@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, User } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -23,15 +23,38 @@ const Header = () => {
                     </h1>
 
                     {/* Nav Desktop */}
-                    <nav className="font-heading hidden md:flex gap-6 font-medium">
-                        <Link to={"/"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
+                    <nav className="font-heading hidden md:flex gap-6 font-medium items-center">
+                        <Link
+                            to={"/"}
+                            className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors"
+                        >
                             Home
                         </Link>
-                        <Link to={"/about"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
+                        <Link
+                            to={"/about"}
+                            className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors"
+                        >
                             About
                         </Link>
-                        <Link to={"/booking"} className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors">
+                        <Link
+                            to={"/car"}
+                            className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors"
+                        >
+                            Cars
+                        </Link>
+                        <Link
+                            to={"/booking"}
+                            className="text-2xl text-yellow-400 hover:text-yellow-200 transition-colors"
+                        >
                             Booking
+                        </Link>
+
+                        {/* Tombol Profil Bulat hanya untuk Desktop */}
+                        <Link
+                            to="/profile"
+                            className="hidden md:flex w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 items-center justify-center hover:bg-yellow-500 transition"
+                        >
+                            <User size={20} className="text-white" />
                         </Link>
                     </nav>
 
@@ -47,14 +70,34 @@ const Header = () => {
                 {menuOpen && (
                     <div className="md:hidden bg-gradient-to-r from-gray-900 via-black to-gray-800 shadow-[0_4px_30px_rgba(255,200,0,0.4)]">
                         <div className="flex flex-col items-center gap-4 py-4">
-                            <Link to={"/"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                            <Link
+                                to={"/"}
+                                className="text-white hover:text-yellow-400"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 Home
                             </Link>
-                            <Link to={"/about"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                            <Link
+                                to={"/about"}
+                                className="text-white hover:text-yellow-400"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 About
                             </Link>
-                            <Link to={"/booking"} className="text-white hover:text-yellow-400" onClick={() => setMenuOpen(false)}>
+                            <Link
+                                to={"/booking"}
+                                className="text-white hover:text-yellow-400"
+                                onClick={() => setMenuOpen(false)}
+                            >
                                 Booking
+                            </Link>
+                            {/* Mobile: Teks Profile */}
+                            <Link
+                                to={"/profile"}
+                                className="text-white hover:text-yellow-400"
+                                onClick={() => setMenuOpen(false)}
+                            >
+                                Profile
                             </Link>
                         </div>
                     </div>

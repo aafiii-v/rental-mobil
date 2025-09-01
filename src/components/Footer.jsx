@@ -29,19 +29,19 @@ const Footer = () => {
 
                 {/* Contact */}
                 <div>
-                    <h3 className="text-xl font-semibold text-white mb-4">Contact Us</h3>
+                    <h3 className="text-xl font-semibold text-white mb-4">Contact Me</h3>
                     <ul className="space-y-3">
                         <li className="flex items-center gap-3">
                             <MapPin size={18} className="text-yellow-400" />
-                            <span>Jl. Merdeka No. 123, Jakarta</span>
+                            <span>Jl. Dakota No. 8A, Kota Bandung</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Phone size={18} className="text-yellow-400" />
-                            <span>+62 812 3456 7890</span>
+                            <span>+62 853 3816 6188</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <Mail size={18} className="text-yellow-400" />
-                            <span>support@carrent.com</span>
+                            <span>afinaufalrizkyyang24@gmail.com</span>
                         </li>
                     </ul>
                 </div>
@@ -56,9 +56,9 @@ const Footer = () => {
                     © {new Date().getFullYear()} CAR-RENT. All rights reserved.
                 </p>
                 <div className="flex gap-4">
-                    <a href="#" className="hover:text-yellow-400"><Facebook size={20} /></a>
-                    <a href="#" className="hover:text-yellow-400"><Instagram size={20} /></a>
-                    <a href="#" className="hover:text-yellow-400"><Twitter size={20} /></a>
+                    <a href="#" className="hover:text-yellow-400"><Facebook size={25} /></a>
+                    <a href="https://www.instagram.com/xyz.007.__/" target="blank" className="hover:text-yellow-400"><Instagram size={25} /></a>
+                    <a href="#" className="hover:text-yellow-400"><Twitter size={25} /></a>
                 </div>
             </div>
         </footer>
