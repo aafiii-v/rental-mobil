@@ -6,7 +6,6 @@ const Footer = () => {
         <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-800 text-gray-300 pt-10 pb-6">
             <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
                 
-                {/* Brand */}
                 <div>
                     <h2 className="text-2xl font-heading font-bold text-yellow-400 mb-4">
                         CAR-RENT
@@ -17,7 +16,6 @@ const Footer = () => {
                     </p>
                 </div>
 
-                {/* Quick Links */}
                 <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
                     <ul className="space-y-2">
@@ -27,7 +25,6 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                {/* Contact */}
                 <div>
                     <h3 className="text-xl font-semibold text-white mb-4">Contact Me</h3>
                     <ul className="space-y-3">
@@ -47,10 +44,8 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* Divider */}
             <div className="border-t border-gray-700 my-6"></div>
 
-            {/* Bottom */}
             <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p className="text-gray-400 text-sm">
                     © {new Date().getFullYear()} CAR-RENT. All rights reserved.

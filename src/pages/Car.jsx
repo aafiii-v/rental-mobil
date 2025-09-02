@@ -18,21 +18,16 @@ const Cars = () => {
     const [loading, setLoading] = useState(true);
     const [selectedCar, setSelectedCar] = useState(null);
 
-    // Popup state
     const [editCar, setEditCar] = useState(null);
     const [deleteCar, setDeleteCar] = useState(null);
 
-    // Notification state
     const [notification, setNotification] = useState(null);
 
-    // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
     const carsPerPage = 6;
 
-    // Search state
     const [searchQuery, setSearchQuery] = useState("");
 
-    // Ambil role dari localStorage
     const userRole = localStorage.getItem("role");
 
     useEffect(() => {
@@ -55,7 +50,6 @@ const Cars = () => {
         }
     };
 
-    // Format harga ke IDR
     const formatPrice = (priceString) => {
         if (!priceString) return "Rp0";
         const price = parseFloat(priceString.replace(/[^\d]/g, ""));
@@ -68,26 +62,22 @@ const Cars = () => {
         }).format(price);
     };
 
-    // Filter berdasarkan search
     const filteredCars = cars.filter(
         (car) =>
             car.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
             car.brand.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Pagination logic
     const indexOfLastCar = currentPage * carsPerPage;
     const indexOfFirstCar = indexOfLastCar - carsPerPage;
     const currentCars = filteredCars.slice(indexOfFirstCar, indexOfLastCar);
     const totalPages = Math.ceil(filteredCars.length / carsPerPage);
 
-    // Show notification
     const showNotification = (message, type = "success") => {
         setNotification({ message, type });
         setTimeout(() => setNotification(null), 3000);
     };
 
-    // Handle Update
     const handleUpdateCar = async (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
@@ -114,14 +104,13 @@ const Cars = () => {
 
             showNotification("Car updated successfully", "success");
             setEditCar(null);
-            fetchCars(); // refresh list
+            fetchCars();
         } catch (err) {
             console.error("Error updating car:", err);
             showNotification("Failed to update car", "error");
         }
     };
 
-    //  Handle Delete
     const handleDeleteCar = async () => {
         try {
             const res = await fetch(`http://localhost:5234/api/Car/DeleteCar/${deleteCar.id}`, {
@@ -132,7 +121,7 @@ const Cars = () => {
 
             showNotification("Car deleted successfully", "success");
             setDeleteCar(null);
-            fetchCars(); // refresh list
+            fetchCars();
         } catch (err) {
             console.error("Error deleting car:", err);
             showNotification("Failed to delete car", "error");
@@ -141,7 +130,6 @@ const Cars = () => {
 
     return (
         <section className="relative min-h-screen bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 flex flex-col items-center justify-center p-6 overflow-hidden">
-            {/* Gear background */}
             <motion.img
                 src="bg-gear.svg"
                 alt="Gear"
@@ -150,7 +138,6 @@ const Cars = () => {
                 className="w-[200px] h-[200px] md:w-[500px] md:h-[500px] opacity-20 absolute inset-0 m-auto"
             />
 
-            {/* Notification (semua di bawah) */}
             {notification && (
                 <div
                     className={`fixed bottom-6 left-1/2 transform -translate-x-1/2 flex items-center gap-2 px-4 py-3 rounded-lg shadow-lg z-50 ${notification.type === "success"
@@ -167,14 +154,12 @@ const Cars = () => {
                 </div>
             )}
 
-            {/* Loading state */}
             {loading && (
                 <div className="flex flex-col items-center justify-center text-center z-10">
                     <p className="text-gray-300 text-3xl font-semibold">Loading cars...</p>
                 </div>
             )}
 
-            {/* No data */}
             {!loading && filteredCars.length === 0 && (
                 <div className="flex flex-col items-center justify-center text-center z-10">
                     <p className="text-gray-400 text-2xl font-semibold">No Cars Found</p>
@@ -182,12 +167,10 @@ const Cars = () => {
             )}
 
             <div className="w-full max-w-6xl flex flex-col items-center pt-28 mb-3">
-                {/* Title */}
                 <h2 className="text-4xl font-bold text-yellow-400 mb-6 text-center">
                     Available Cars
                 </h2>
 
-                {/* Search bar */}
                 <input
                     type="text"
                     placeholder="Search by name or brand..."
@@ -196,7 +179,6 @@ const Cars = () => {
                     className="w-full max-w-md px-4 py-2 rounded-lg border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-yellow-400 mb-8"
                 />
 
-                {/* Add New Car (Admin only) */}
                 {userRole === "Admin" && (
                     <Link
                         to={"/form-add-car"}
@@ -207,7 +189,6 @@ const Cars = () => {
                 )}
             </div>
 
-            {/* Car list */}
             {!loading && filteredCars.length > 0 && (
                 <>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl relative">
@@ -236,7 +217,6 @@ const Cars = () => {
                                         {formatPrice(car.rentalPricePerDay)} / hari
                                     </p>
 
-                                    {/* Update & Delete button (Admin only) */}
                                     {userRole === "Admin" && (
                                         <div className="flex gap-2 mt-4">
                                             <button
@@ -264,7 +244,6 @@ const Cars = () => {
                         ))}
                     </div>
 
-                    {/* Pagination */}
                     <div className="flex gap-4 mt-8 z-10">
                         <button
                             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -289,11 +268,9 @@ const Cars = () => {
                 </>
             )}
 
-            {/* Popup Modal Detail */}
             {selectedCar && (
                 <div className="fixed inset-0 backdrop-blur-lg bg-black/40 flex items-center justify-center z-50">
                     <div className="bg-gray-900 rounded-2xl shadow-xl max-w-lg w-full p-6 relative border border-gray-700">
-                        {/* Close button */}
                         <button
                             className="absolute top-4 right-4 text-white hover:text-red-600 transition"
                             onClick={() => setSelectedCar(null)}
@@ -313,7 +290,6 @@ const Cars = () => {
                             {formatPrice(selectedCar.rentalPricePerDay)} / hari
                         </p>
 
-                        {/* Rent button hanya untuk User */}
                         {userRole === "User" && (
                             <Link
                                 to={`/form-booking/${selectedCar.id}`}
@@ -326,7 +302,6 @@ const Cars = () => {
                 </div>
             )}
 
-            {/* Popup Edit Car (Admin only) */}
             {userRole === "Admin" && editCar && (
                 <div className="fixed inset-0 backdrop-blur-lg bg-black/70 flex items-center justify-center z-50">
                     <div className="bg-gray-900 rounded-2xl shadow-xl max-w-lg w-full p-6 relative border border-gray-700">
@@ -385,7 +360,6 @@ const Cars = () => {
                 </div>
             )}
 
-            {/* Popup Delete Confirmation (Admin only) */}
             <AnimatePresence>
                 {userRole === "Admin" && deleteCar && (
                     <motion.div

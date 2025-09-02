@@ -38,7 +38,7 @@ const FormBooking = () => {
 
             const diffTime = end.getTime() - start.getTime();
             const diffDays = Math.max(Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1, 0);
-            const pricePerDay = parseFloat(car.rentalPricePerDay); // perbaikan
+            const pricePerDay = parseFloat(car.rentalPricePerDay);
             setTotalPrice(diffDays * pricePerDay);
             setError("");
         } else {
@@ -94,7 +94,7 @@ const FormBooking = () => {
 
             setTimeout(() => {
                 setNotification("");
-                navigate("/booking"); // redirect ke halaman booking
+                navigate("/booking");
             }, 1500);
         } catch (err) {
             console.error(err);
@@ -174,14 +174,12 @@ const FormBooking = () => {
                 </form>
             </div>
 
-            {/* Notification di bawah tengah */}
             {notification && (
                 <div className="fixed bottom-5 left-1/2 -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50">
                     {notification}
                 </div>
             )}
 
-            {/* Popup konfirmasi dengan animasi */}
             <AnimatePresence>
                 {showPopup && (
                     <motion.div

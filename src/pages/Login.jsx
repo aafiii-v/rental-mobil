@@ -29,7 +29,6 @@ const Login = () => {
             const data = await res.json();
 
             if (res.ok) {
-                // Simpan token & userId
                 localStorage.setItem("token", data.data.setToken);
                 localStorage.setItem("userId", data.data.id);
                 localStorage.setItem("currentUser", JSON.stringify({ username: form.username }));
@@ -37,7 +36,6 @@ const Login = () => {
                 localStorage.setItem("role", data.data.role);
                 localStorage.setItem("name", data.data.name);
 
-                // Navigasi ke parent / (Home otomatis)
                 navigate("/", { replace: true });
             } else {
                 setMessage(data.StatusDesc || "Login failed");

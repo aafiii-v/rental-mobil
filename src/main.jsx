@@ -14,7 +14,6 @@ import Manager from './pages/Manager.jsx';
 import FormAddCar from './pages/FormAddCar.jsx';
 import FormBooking from './pages/FormBooking.jsx';
 
-// Wrapper untuk route yang membutuhkan login
 const RequireAuth = ({ children }) => {
   const token = localStorage.getItem("token");
   if (!token) return <Navigate to="/login" replace />;
@@ -31,7 +30,6 @@ const router = createBrowserRouter([
     element: <Register />
   },
 
-  // Semua route yang butuh autentikasi
   {
     path: "/",
     element: (
@@ -75,7 +73,6 @@ const router = createBrowserRouter([
     ]
   },
 
-  // fallback route
   { path: "*", element: <Navigate to="/login" replace /> },
 ]);
 

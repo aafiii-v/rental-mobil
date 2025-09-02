@@ -92,7 +92,6 @@ const Profile = () => {
         }
     };
 
-    // loading screen
     if (loading) {
         return (
             <section className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800">
@@ -132,11 +131,10 @@ const Profile = () => {
         );
     }
 
-    if (!user) return null; // kalau udah loading selesai tapi user null, return kosong aja
+    if (!user) return null;
 
     return (
         <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 flex items-center justify-center px-6 pt-34 pb-8 relative">
-            {/* Mobil kiri */}
             <motion.img
                 src="Logo.png"
                 alt="Car Left"
@@ -145,7 +143,6 @@ const Profile = () => {
                 transition={{ duration: 1 }}
                 className="absolute left-20 top-1/2 -translate-y-1/2 w-40 md:w-60"
             />
-            {/* Mobil kanan */}
             <motion.img
                 src="Mustang.png"
                 alt="Car Right"
@@ -155,13 +152,11 @@ const Profile = () => {
                 className="absolute right-18 top-1/2 -translate-y-1/2 w-40 md:w-64"
             />
 
-            {/* Profile Card */}
             <div className="bg-gray-800 p-8 rounded-xl shadow-xl w-full max-w-lg text-white flex flex-col relative">
                 <h2 className="text-3xl font-bold text-yellow-400 text-center">
                     Profile
                 </h2>
 
-                {/* Data Readonly */}
                 <div className="flex flex-col gap-4">
                     {["name", "userName", "email", "phoneNumber", "role"].map((field) => {
                         if (field === "role" && user.role !== "Admin") return null;
@@ -181,7 +176,6 @@ const Profile = () => {
                     })}
                 </div>
 
-                {/* Buttons */}
                 <div className="flex justify-between mt-8 gap-8 font-semibold">
                     <button
                         onClick={() => setEditMode(true)}
@@ -207,7 +201,6 @@ const Profile = () => {
                     </button>
                 </div>
 
-                {/* Modal Edit */}
                 {editMode && (
                     <div className="fixed inset-0 backdrop-blur-lg flex items-center justify-center z-20 pointer-events-auto">
                         <div className="bg-gray-800 p-6 rounded-xl shadow-xl w-full max-w-md flex flex-col gap-4">

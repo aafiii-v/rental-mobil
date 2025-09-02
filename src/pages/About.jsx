@@ -4,16 +4,13 @@ import { motion } from "framer-motion";
 const About = () => {
     return (
         <section className="font-body bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 min-h-screen pt-28 pb-12 md:pb-10 md:pt-34 md:p-28 relative overflow-hidden">
-            {/* Background texture */}
             <div className="absolute inset-0 opacity-10 bg-[url('/road-texture.jpg')] bg-cover bg-center"></div>
 
             <div className="container mx-auto px-6 relative space-y-20">
-                {/* Judul */}
                 <h2 className="text-4xl md:text-5xl font-bold text-yellow-400 text-center mb-10">
                     About Us
                 </h2>
 
-                {/* Bagian 1 - Sejarah berdiri */}
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     <motion.div
                         initial={{ x: -200, opacity: 0 }}
@@ -43,7 +40,6 @@ const About = () => {
                     />
                 </div>
 
-                {/* Bagian 2 - Perawatan */}
                 <div className="flex flex-col md:flex-row-reverse items-center gap-10">
                     <motion.div
                         initial={{ x: 200, opacity: 0 }}
@@ -72,7 +68,6 @@ const About = () => {
                     />
                 </div>
 
-                {/* Bagian 3 - Teknis & Layanan */}
                 <div className="flex flex-col md:flex-row items-center gap-10">
                     <motion.div
                         initial={{ x: -200, opacity: 0 }}
@@ -102,7 +97,6 @@ const About = () => {
                     />
                 </div>
 
-                {/* CTA */}
                 <div className="text-center mt-10">
                     <Link
                         to="/car"

@@ -40,7 +40,7 @@ const Register = () => {
             if (response.ok) {
                 setMessage("Registration successful!");
                 setForm({ name: "", username: "", email: "", phoneNumber: "", password: "" });
-                navigate("/login"); // otomatis redirect ke login setelah register sukses
+                navigate("/login");
             } else {
                 setMessage(data.StatusDesc || "Registration failed");
             }

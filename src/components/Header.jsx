@@ -23,7 +23,6 @@ const Header = () => {
                         <Link to={"/"}>CAR-RENT</Link>
                     </h1>
 
-                    {/* Nav Desktop */}
                     <nav className="font-heading hidden md:flex gap-6 font-medium items-center">
                         <Link
                             to={"/"}
@@ -60,7 +59,6 @@ const Header = () => {
                         </div>
                     </nav>
 
-                    {/* Hamburger */}
                     <button
                         className="md:hidden text-yellow-400"
                         onClick={() => setMenuOpen(!menuOpen)}
@@ -93,7 +91,6 @@ const Header = () => {
                             >
                                 Booking
                             </Link>
-                            {/* Mobile: Teks Profile */}
                             <Link
                                 to={"/profile"}
                                 className="text-white hover:text-yellow-400"

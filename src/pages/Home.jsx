@@ -7,7 +7,6 @@ const Home = () => {
             <section className="font-body bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 min-h-screen flex items-center relative overflow-hidden pt-24 md:pt-12">
                 <div className="absolute inset-0 opacity-20 bg-[url('/road-texture.jpg')] bg-cover bg-center"></div>
                 <div className="container mx-auto flex flex-col md:flex-row items-center px-6 relative">
-                    {/* Kiri: Text */}
                     <div className="flex-1 text-center md:text-left">
                         <p className="text-xl text-yellow-400 font-semibold mb-2">Revlimit</p>
                         <h1 className="text-4xl font-bold text-white mb-4">Car Rental</h1>

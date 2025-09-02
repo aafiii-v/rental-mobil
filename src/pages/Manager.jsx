@@ -106,7 +106,6 @@ const Manager = () => {
     }
   };
 
-  // Sorting + Filtering
   const filteredUsers = users.filter(
     (u) =>
       u.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -124,14 +123,12 @@ const Manager = () => {
   if (loading)
     return <p className="text-center mt-20 text-white">Loading users...</p>;
 
-  // Pagination
   const totalPages = Math.ceil(sortedUsers.length / usersPerPage);
   const startIndex = (currentPage - 1) * usersPerPage;
   const currentUsers = sortedUsers.slice(startIndex, startIndex + usersPerPage);
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 p-10 pt-35 text-white">
-      {/* Top bar */}
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-3">
         <button
           onClick={() => navigate(-1)}
@@ -140,7 +137,6 @@ const Manager = () => {
           ← Kembali
         </button>
 
-        {/* Search bar*/}
         <input
           type="text"
           value={searchQuery}
@@ -149,7 +145,6 @@ const Manager = () => {
           className="bg-gray-800 px-4 py-2 rounded-lg border border-gray-600 text-white w-180"
         />
 
-        {/* Sorting dropdown */}
         <select
           value={sortOption}
           onChange={(e) => setSortOption(e.target.value)}
@@ -170,7 +165,6 @@ const Manager = () => {
         <p className="text-red-500 text-center mb-4">{errorMessage}</p>
       )}
 
-      {/* List Users */}
       <div className="space-y-4 max-w-4xl mx-auto">
         {currentUsers.length > 0 ? (
           currentUsers.map((u) => (
@@ -178,7 +172,6 @@ const Manager = () => {
               key={u.id}
               className="flex items-center justify-between bg-gray-800 rounded-xl shadow-md p-5 border border-gray-700 hover:shadow-yellow-500/20 transition"
             >
-              {/* Info User */}
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 flex items-center justify-center rounded-full bg-yellow-500 text-black font-bold text-lg">
                   {u.name.charAt(0).toUpperCase()}
@@ -193,7 +186,6 @@ const Manager = () => {
                 </div>
               </div>
 
-              {/* Role + Actions */}
               <div className="flex items-center gap-3">
                 <span
                   className={`px-3 py-1 rounded-full text-xs font-bold ${u.role === "Admin"
@@ -234,7 +226,6 @@ const Manager = () => {
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-6 gap-2">
           <button
@@ -274,7 +265,6 @@ const Manager = () => {
         </div>
       )}
 
-      {/* Modal Update / Detail */}
       {isModalOpen && selectedUser && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
           <div className="bg-gray-900 p-8 rounded-2xl shadow-lg w-full max-w-lg">
@@ -367,7 +357,6 @@ const Manager = () => {
         </div>
       )}
 
-      {/* Modal Delete Confirmation */}
       {isDeleteModal && selectedUser && (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
           <div className="bg-gray-900 p-6 rounded-xl shadow-lg w-full max-w-md text-center">

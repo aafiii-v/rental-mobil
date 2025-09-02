@@ -17,7 +17,6 @@ const Booking = () => {
         }
     }, []);
 
-    // === FETCH USER ===
     const fetchBookingsUser = async () => {
         try {
             const res = await fetch(
@@ -44,7 +43,6 @@ const Booking = () => {
         }
     };
 
-    // === FETCH ADMIN ===
     const fetchBookingsAdmin = async () => {
         try {
             const res = await fetch(
@@ -63,7 +61,7 @@ const Booking = () => {
                 endDate: b.endDate,
                 totalPrice: b.totalPrice,
                 status: b.status,
-                userName: b.userName, // 👈 tambahan khusus admin
+                userName: b.userName,
             }));
 
             setBookings(mapped);
@@ -72,7 +70,6 @@ const Booking = () => {
         }
     };
 
-    // === CANCEL BOOKING ===
     const confirmCancelBooking = async () => {
         try {
             const res = await fetch(
@@ -161,7 +158,6 @@ const Booking = () => {
                 </div>
             )}
 
-            {/* Popup detail booking */}
             <AnimatePresence>
                 {selectedBooking && (
                     <motion.div
@@ -222,7 +218,6 @@ const Booking = () => {
                 )}
             </AnimatePresence>
 
-            {/* Popup konfirmasi cancel */}
             <AnimatePresence>
                 {confirmCancelId && (
                     <motion.div

@@ -19,11 +19,10 @@ const FormAddCar = () => {
 
     const navigate = useNavigate();
 
-    // 🔒 Guard: cek role user dari localStorage
     useEffect(() => {
         const role = localStorage.getItem("role");
         if (role !== "Admin") {
-            navigate("/car"); // kalau bukan Admin, balikin ke halaman car
+            navigate("/car");
         }
     }, [navigate]);
 
@@ -58,7 +57,6 @@ const FormAddCar = () => {
 
             setSuccess(true);
 
-            // Delay 3 detik sebelum redirect
             setTimeout(() => {
                 navigate("/car");
             }, 3000);
@@ -72,7 +70,6 @@ const FormAddCar = () => {
 
     return (
         <section className="min-h-screen bg-gray-900 flex items-center justify-center relative p-6 overflow-hidden">
-            {/* Tombol Back */}
             <button
                 onClick={() => navigate("/car")}
                 className="flex absolute top-[142px] left-100 bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition"
@@ -80,7 +77,6 @@ const FormAddCar = () => {
                 <StepBack /> Back
             </button>
 
-            {/* Mobil kiri */}
             <motion.img
                 src="Logo.png"
                 alt="Car Left"
@@ -90,7 +86,6 @@ const FormAddCar = () => {
                 className="hidden md:block w-76 absolute left-20"
             />
 
-            {/* Mobil kanan */}
             <motion.img
                 src="Mustang.png"
                 alt="Car Right"
@@ -100,7 +95,6 @@ const FormAddCar = () => {
                 className="hidden md:block w-78 absolute right-20"
             />
 
-            {/* Form */}
             <div className="bg-gray-800 p-8 rounded-xl w-full max-w-md shadow-lg relative -mb-12">
                 <h2 className="text-2xl font-bold text-yellow-400 mb-6">Add New Car</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -153,13 +147,11 @@ const FormAddCar = () => {
                         className="w-full px-4 py-2 rounded-lg border border-gray-600 bg-gray-700 text-white"
                     />
 
-                    {/* Pesan Error */}
                     {error && <p className="text-red-400 text-sm">{error}</p>}
 
-                    {/* Pesan Sukses */}
                     {success && (
                         <p className="text-green-400 text-sm font-semibold">
-                            ✅ Car successfully added! Redirecting...
+                            Car successfully added! Redirecting...
                         </p>
                     )}
 
