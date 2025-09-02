@@ -1,4 +1,4 @@
-# 🚗 CAR-RENT
+# 🚗 RevLimit CAR-RENT
 
 CAR-RENT adalah aplikasi web modern berbasis **React.js** dan **.NET Core API** untuk penyewaan mobil dengan fitur autentikasi, manajemen profil, daftar mobil, sistem booking, serta role **Admin** & **User**.  
 
@@ -17,7 +17,7 @@ CAR-RENT adalah aplikasi web modern berbasis **React.js** dan **.NET Core API** 
 ## 🖥️ Preview
 > Tambahkan screenshot di folder project kamu lalu tampilkan di sini.
 
-![Preview App](Logo.png)
+![Preview App](./public/dashboard.png)
 
 ---
 
