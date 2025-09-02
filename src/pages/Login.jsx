@@ -17,7 +17,7 @@ const Login = () => {
         setMessage("");
 
         try {
-            const res = await fetch("https://localhost:44350/api/User/login", {
+            const res = await fetch(`http://localhost:5234/api/User/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({

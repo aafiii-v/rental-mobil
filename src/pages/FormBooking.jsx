@@ -49,7 +49,7 @@ const FormBooking = () => {
 
     const fetchCarDetail = async () => {
         try {
-            const res = await fetch(`https://localhost:44350/api/Car/GetCarById/${id}`);
+            const res = await fetch(`http://localhost:5234/api/Car/GetCarById/${id}`);
             if (!res.ok) throw new Error("Failed to fetch car detail");
             const data = await res.json();
             setCar(data.data);
@@ -81,7 +81,7 @@ const FormBooking = () => {
         };
 
         try {
-            const res = await fetch("https://localhost:44350/api/Booking/CreateBooking", {
+            const res = await fetch(`http://localhost:5234/api/Booking/CreateBooking`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(bookingData),

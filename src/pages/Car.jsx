@@ -41,7 +41,7 @@ const Cars = () => {
 
     const fetchCars = async () => {
         try {
-            const res = await fetch("https://localhost:44350/api/Car/GetListCar");
+            const res = await fetch("http://localhost:5234/api/Car/GetListCar");
             if (!res.ok) throw new Error("Gagal fetch data");
             const data = await res.json();
 
@@ -102,7 +102,7 @@ const Cars = () => {
         };
 
         try {
-            const res = await fetch(`https://localhost:44350/api/Car/UpdateCar/${editCar.id}`, {
+            const res = await fetch(`http://localhost:5234/api/Car/UpdateCar/${editCar.id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -124,7 +124,7 @@ const Cars = () => {
     //  Handle Delete
     const handleDeleteCar = async () => {
         try {
-            const res = await fetch(`https://localhost:44350/api/Car/DeleteCar/${deleteCar.id}`, {
+            const res = await fetch(`http://localhost:5234/api/Car/DeleteCar/${deleteCar.id}`, {
                 method: "DELETE",
             });
 

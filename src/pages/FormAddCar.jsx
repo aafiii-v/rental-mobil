@@ -39,7 +39,7 @@ const FormAddCar = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch("https://localhost:44350/api/Car/AddCar", {
+            const response = await fetch(`http://localhost:5234/api/Car/AddCar`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

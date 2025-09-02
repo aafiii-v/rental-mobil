@@ -21,7 +21,7 @@ const Booking = () => {
     const fetchBookingsUser = async () => {
         try {
             const res = await fetch(
-                `https://localhost:44350/api/Booking/GetBookingByUser/${userId}`
+                `http://localhost:5234/api/Booking/GetBookingByUser/${userId}`
             );
             if (!res.ok) throw new Error("Failed to fetch bookings (user)");
 
@@ -48,7 +48,7 @@ const Booking = () => {
     const fetchBookingsAdmin = async () => {
         try {
             const res = await fetch(
-                "https://localhost:44350/api/Booking/GetAllBookings"
+                `http://localhost:5234/api/Booking/GetAllBookings`
             );
             if (!res.ok) throw new Error("Failed to fetch bookings (admin)");
 
@@ -76,7 +76,7 @@ const Booking = () => {
     const confirmCancelBooking = async () => {
         try {
             const res = await fetch(
-                `https://localhost:44350/api/Booking/UpdateBooking/${confirmCancelId}`,
+                `http://localhost:5234/api/Booking/UpdateBooking/${confirmCancelId}`,
                 {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },

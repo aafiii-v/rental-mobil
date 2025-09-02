@@ -31,7 +31,7 @@ const Manager = () => {
 
     const fetchUsers = async () => {
       try {
-        const res = await fetch("https://localhost:44350/api/User/GetAllUser", {
+        const res = await fetch(`http://localhost:5234/api/User/GetAllUser`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = await res.json();
@@ -51,7 +51,7 @@ const Manager = () => {
   const handleDelete = async () => {
     try {
       const res = await fetch(
-        `https://localhost:44350/api/User/DeleteUser/${selectedUser.id}`,
+        `http://localhost:5234/api/User/DeleteUser/${selectedUser.id}`,
         {
           method: "DELETE",
           headers: { Authorization: `Bearer ${token}` },
@@ -84,7 +84,7 @@ const Manager = () => {
     e.preventDefault();
     try {
       const res = await fetch(
-        `https://localhost:44350/api/User/UpdateUser/${selectedUser.id}`,
+        `http://localhost:5234/api/User/UpdateUser/${selectedUser.id}`,
         {
           method: "PUT",
           headers: {

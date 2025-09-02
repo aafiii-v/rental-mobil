@@ -24,7 +24,7 @@ const Profile = () => {
 
         const fetchUser = async () => {
             try {
-                const res = await fetch(`https://localhost:44350/api/User/GetUserById/${userId}`, {
+                const res = await fetch(`http://localhost:5234/api/User/GetUserById/${userId}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -71,7 +71,7 @@ const Profile = () => {
                 bodyData.passwordHash = password;
             }
 
-            const res = await fetch(`https://localhost:44350/api/User/UpdateUser/${userId}`, {
+            const res = await fetch(`http://localhost:5234/api/User/UpdateUser/${userId}`, {
                 method: "PUT",
                 headers: {
                     Authorization: `Bearer ${token}`,
