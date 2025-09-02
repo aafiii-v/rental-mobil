@@ -12,6 +12,7 @@ import Profile from './pages/Profile.jsx';
 import { createBrowserRouter, RouterProvider, Navigate, Outlet } from "react-router-dom";
 import Manager from './pages/Manager.jsx';
 import FormAddCar from './pages/FormAddCar.jsx';
+import FormBooking from './pages/FormBooking.jsx';
 
 // Wrapper untuk route yang membutuhkan login
 const RequireAuth = ({ children }) => {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home />
-      },        // default route (Home)
+      },
       {
         path: "booking",
         element: <Booking />
@@ -61,11 +62,15 @@ const router = createBrowserRouter([
       },
       {
         path: "manager",
-        element: <Manager/>
+        element: <Manager />
       },
       {
         path: "form-add-car",
-        element: <FormAddCar/>
+        element: <FormAddCar />
+      },
+      {
+        path: "form-booking/:id",
+        element: <FormBooking />
       },
     ]
   },

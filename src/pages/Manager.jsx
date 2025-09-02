@@ -344,19 +344,6 @@ const Manager = () => {
                 <option value="User">User</option>
                 <option value="Admin">Admin</option>
               </select>
-              {!isDetailModal && (
-                <input
-                  type="password"
-                  placeholder="New Password (optional)"
-                  onChange={(e) =>
-                    setSelectedUser({
-                      ...selectedUser,
-                      password: e.target.value,
-                    })
-                  }
-                  className="p-3 rounded bg-gray-800 text-white"
-                />
-              )}
 
               <div className="flex justify-end gap-3 mt-4">
                 <button

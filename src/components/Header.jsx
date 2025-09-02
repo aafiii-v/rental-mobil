@@ -6,6 +6,9 @@ import { motion } from "framer-motion";
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
+    // Ambil data name dari localStorage
+    const userName = localStorage.getItem("name") || "Guest";
+
     return (
         <>
             <header className="bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 fixed w-full top-0 z-10 shadow-[0_4px_30px_rgba(255,200,0,0.4)]">
@@ -50,12 +53,16 @@ const Header = () => {
                         </Link>
 
                         {/* Tombol Profil Bulat hanya untuk Desktop */}
-                        <Link
-                            to="/profile"
-                            className="hidden md:flex w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 items-center justify-center hover:bg-yellow-500 transition"
-                        >
-                            <User size={20} className="text-white" />
-                        </Link>
+                        <div className="flex flex-col items-center">
+                            <Link
+                                to="/profile"
+                                className="hidden md:flex w-10 h-10 md:w-12 md:h-12 rounded-full bg-yellow-400 items-center justify-center hover:bg-yellow-500 transition"
+                            >
+                                <User size={20} className="text-white" />
+                            </Link>
+                            {/* Label nama dari localStorage */}
+                            <span className="text-sm text-yellow-400 mt-1">{userName}</span>
+                        </div>
                     </nav>
 
                     {/* Hamburger */}

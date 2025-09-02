@@ -35,6 +35,7 @@ const Login = () => {
                 localStorage.setItem("currentUser", JSON.stringify({ username: form.username }));
                 localStorage.setItem("isLoggedIn", "true");
                 localStorage.setItem("role", data.data.role);
+                localStorage.setItem("name", data.data.name);
 
                 // Navigasi ke parent / (Home otomatis)
                 navigate("/", { replace: true });

@@ -291,7 +291,7 @@ const Cars = () => {
 
             {/* Popup Modal Detail */}
             {selectedCar && (
-                <div className="fixed inset-0 backdrop-blur-lg bg-black/70 flex items-center justify-center z-50">
+                <div className="fixed inset-0 backdrop-blur-lg bg-black/40 flex items-center justify-center z-50">
                     <div className="bg-gray-900 rounded-2xl shadow-xl max-w-lg w-full p-6 relative border border-gray-700">
                         {/* Close button */}
                         <button
@@ -315,15 +315,13 @@ const Cars = () => {
 
                         {/* Rent button hanya untuk User */}
                         {userRole === "User" && (
-                            <button
-                                className="mt-6 w-full bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-yellow-400 transition flex items-center justify-center gap-2"
-                                onClick={() =>
-                                    showNotification(`Renting ${selectedCar.name}`, "success")
-                                }
+                            <Link
+                                to={`/form-booking/${selectedCar.id}`}
+                                className="mt-6 w-full bg-yellow-500 text-black font-bold py-2 px-4 rounded-lg hover:bg-yellow-400 transition flex items-center justify-center gap-2 text-center"
                             >
                                 <Car size={18} /> Rent Now
-                            </button>
-                        )}
+                            </Link>
+                        )};
                     </div>
                 </div>
             )}
