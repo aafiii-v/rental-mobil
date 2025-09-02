@@ -135,7 +135,7 @@ const Profile = () => {
     if (!user) return null; // kalau udah loading selesai tapi user null, return kosong aja
 
     return (
-        <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 flex items-center justify-center px-6 pt-30 pb-8 relative">
+        <div className="min-h-screen bg-gradient-to-r from-gray-900 via-gray-950 to-gray-800 flex items-center justify-center px-6 pt-34 pb-8 relative">
             {/* Mobil kiri */}
             <motion.img
                 src="Logo.png"

@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-
-    // Ambil data name dari localStorage
     const userName = localStorage.getItem("name") || "Guest";
 
     return (
@@ -51,8 +49,6 @@ const Header = () => {
                         >
                             Booking
                         </Link>
-
-                        {/* Tombol Profil Bulat hanya untuk Desktop */}
                         <div className="flex flex-col items-center">
                             <Link
                                 to="/profile"
@@ -60,8 +56,7 @@ const Header = () => {
                             >
                                 <User size={20} className="text-white" />
                             </Link>
-                            {/* Label nama dari localStorage */}
-                            <span className="text-sm text-yellow-400 mt-1">{userName}</span>
+                            <span className="text-xl text-yellow-400 mt-1">{userName}</span>
                         </div>
                     </nav>
 
